@@ -1,9 +1,8 @@
-from n2t.core.writer import Writer
 from n2t.core import registers
+from n2t.core.writer import Writer
 
 
 class Decoder:
-
     @staticmethod
     def is_addressing(command: str) -> bool:
         return command.startswith("0")
@@ -104,13 +103,13 @@ class Decoder:
     def process_jmp(command: str) -> None:
         c = registers.C
         if (
-                (command == "001" and c > 0) or
-                (command == "010" and c == 0) or
-                (command == "011" and c >= 0) or
-                (command == "100" and c < 0) or
-                (command == "101" and c != 0) or
-                (command == "110" and c <= 0) or
-                (command == "111")
+            (command == "001" and c > 0)
+            or (command == "010" and c == 0)
+            or (command == "011" and c >= 0)
+            or (command == "100" and c < 0)
+            or (command == "101" and c != 0)
+            or (command == "110" and c <= 0)
+            or (command == "111")
         ):
             registers.PC = registers.A - 1
-            print(f'jumping to {registers.A}')
+            print(f"jumping to {registers.A}")

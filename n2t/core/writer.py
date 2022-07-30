@@ -16,4 +16,4 @@ class Writer:
     def write_out(cls, output_path: str) -> None:
         file = open(output_path, "w")
         for i in range(32768):
-            file.write(f'RAM[{i}] : {cls.ram[i]}\n')
+            file.write(f"RAM[{i}] : {cls.ram[i]}\n")
