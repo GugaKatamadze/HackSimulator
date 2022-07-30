@@ -1,5 +1,5 @@
-import registers
-from writer import Writer
+from n2t.core.writer import Writer
+from n2t.core import registers
 
 
 class Decoder:
