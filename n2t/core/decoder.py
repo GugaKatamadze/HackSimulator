@@ -32,11 +32,11 @@ class Decoder:
         elif command == "1110000":
             registers.C = Writer.get_ram_value(registers.A)
         elif command == "0001101":
-            registers.C = not registers.D
+            registers.C = -registers.D - 1
         elif command == "0110001":
-            registers.C = not registers.A
+            registers.C = -registers.A - 1
         elif command == "1110001":
-            registers.C = not Writer.get_ram_value(registers.A)
+            registers.C = -Writer.get_ram_value(registers.A) - 1
         elif command == "0001111":
             registers.C = -registers.D
         elif command == "0110011":
@@ -75,6 +75,8 @@ class Decoder:
             registers.C = registers.D | registers.A
         elif command == "1010101":
             registers.C = registers.D | Writer.get_ram_value(registers.A)
+
+        print(registers.C)
 
     @staticmethod
     def process_dest(command: str) -> None:
