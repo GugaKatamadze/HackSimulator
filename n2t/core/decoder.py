@@ -10,7 +10,6 @@ class Decoder:
     @staticmethod
     def process_addressing(command: str) -> None:
         registers.A = int(command[1:], 2)
-        print("A was set to " + str(registers.A))
 
     @staticmethod
     def process_command(command: str) -> None:
@@ -112,4 +111,3 @@ class Decoder:
             or (command == "111")
         ):
             registers.PC = registers.A - 1
-            print(f"jumping to {registers.A}")

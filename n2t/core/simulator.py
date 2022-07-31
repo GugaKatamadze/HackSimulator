@@ -8,7 +8,9 @@ class Simulator:
     def simulate(instructions: list[str], output_path: str, cycles: int) -> None:
         cycle_counter = 0
         while True:
-            print(f"current pc: {registers.PC}")
+            if cycles == 0:
+                break
+
             instruction = instructions[registers.PC]
             if Decoder.is_addressing(instruction):
                 Decoder.process_addressing(instruction)
