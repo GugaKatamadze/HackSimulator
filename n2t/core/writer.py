@@ -17,3 +17,8 @@ class Writer:
         file = open(output_path, "w")
         for i in range(32768):
             file.write(f"RAM[{i}] : {cls.ram[i]}\n")
+
+    @classmethod
+    def reset(cls) -> None:
+        for i in range(32768):
+            cls.ram[i] = ""

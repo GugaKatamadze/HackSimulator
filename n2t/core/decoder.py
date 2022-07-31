@@ -76,8 +76,6 @@ class Decoder:
         elif command == "1010101":
             registers.C = registers.D | Writer.get_ram_value(registers.A)
 
-        print(registers.C)
-
     @staticmethod
     def process_dest(command: str) -> None:
         if command == "001":
